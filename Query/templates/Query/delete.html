@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <style type="text/css">
+            #book  { font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; width:80%;  border-collapse:collapse; margin: 0 auto; }
+            #book td, #book th {  font-size:1em;  border:1px solid #98bf21;  padding:3px 7px 2px 7px;  }
+            #book th  {  font-size:1.1em;  text-align:left;  padding-top:5px;  padding-bottom:4px;  background-color:#A7C942;  color:#ffffff;  }
+            #book tr.alt td   {  color:#000000;  background-color:#EAF2D3;  }
+            tr:nth-child(2n){  font-size:1em;  border:1px solid #98bf21;  padding:3px 7px 2px 7px;  }
+            tr:nth-child(2n+1){  color:#000000;  background-color:#EAF2D3; }
+            h1 {color:#88a03f;}
+        </style>
+    </head>
+    <body>
+        <p style="color:#ff0000;font-weight:bold">你正在对图书表进行删除操作...</p>
+        <h1 align="center"> 图书表 </h1>
+
+        <form name="input" action="/Query/book/delete/result/" method="post">
+
+        <div class="container">
+            <div class="row">
+            <div class="col-sm-2"></div>
+        <table id="book">
+            <tr><th> 图书编号 </th>
+                <th> 书名 </th>
+                <th> ISBN </th>
+                <th> 作者 </th>
+                <th> 出版社 </th>
+                <th> 借阅次数 </th>
+                <th> 价格 </th>
+                <th> 选中 </th>
+            </tr>
+    
+            {% for book in book_list %}
+                <tr >
+                    {% for item in book %}
+                    <td> {{ item }} </td>
+                    {% endfor %}
+                    <td><input type="checkbox" name= "{{ book.book_id }}" id= "{{ book.book_id }}" ></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <div class="col-sm-2"></div>
+        </div>
+        </div>
+        <br / >
+
+        <center>
+            {% csrf_token %} 
+            <input style = "font-size:1.1em;background-color:#ffffff;  font-weight:bold; border-radius:5px" type="submit" value="删除选中行">
+        </center>
+
+        </form>
+    </body>
+</html>

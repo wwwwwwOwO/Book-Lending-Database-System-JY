@@ -1,0 +1,9 @@
+<p>删除成功！</p><br /> 
+<p>已删除以下图书：</p><br /> 
+               
+{% for item in deleted %}
+<p>{{ item }} </p> <br /> 
+{% endfor %}
+<br /> 
+<a href="/Query/book/"> <button type="button"> 点击返回主目录 </button></a>
+<a href="/Query/book/delete/"> <button type="button"> 点击返回删除图书界面 </button></a>
