@@ -18,4 +18,4 @@ pyodbc工具包
 python manage.py runserver
 ```
 
-![image-20220223123409696](fig\view.png)
+![image-20220223123409696](https://github.com/wwwwwwOwO/Book-Lending-Database-System-JY/blob/main/fig/view.png)
